@@ -1,40 +1,27 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import cors from 'cors';
+import nameRoutes from './routes/name.js';
+
+
+app.use('/names',nameRoutes);
 
 const app = express();
-app.use(express.json);
+
+app.use(bodyParser.json({limit:"20mb", extended:true}));
+app.use(bodyParser.urlencoded({limit:"20mb", extended:true}));
+
 app.use(cors());
 
-mongoose.connect("mongodb:localhost27017/myremedy",
-{
-    useNewUrlParser  :true,
-    useUnifiedTopology: true
-},
-() => { console.log("database conected");
-});
+const CONNECTION_URL='mongodb+srv://SherlinR:Sherlin16!*@cluster0.hthnm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-const studSchema =  new mongoose.Schema({
-    pname : String,
-    page: Number,
-    email: String
-});
+const PORT =process.env.PORT || 3000;
 
-const Stud = new mongoose.model("Stud",studSchema);
+mongoose.connect(CONNECTION_URL,{
+    useNewUrlParser:true,useUnifiedTopology: true
+}).then(() => app.listen(PORT,()=>
+console.log(`Connection is established and running on port: ${PORT}`)
+)).catch((err)=> console.log(err.message));
 
-app.get('/',(req,res) =>{
-    res.send("BEGIN");
-    const xx = new Stud({ pname : "AAA", page :64, email: "xxx@email.com"});
-    try{
-        xx.save();}
-    catch(err){
-        console.log(err);
-    }
- }
-);
-
-app.listen(8080,() =>{
-    console.log("Server is running");
-});
-
-
+mongoose.set('useFindAndModify',false); 
