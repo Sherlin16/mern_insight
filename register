@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<style>
+    h1{text-align: center;}
+    body {
+    background-color: #2B7A9D;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 450px;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+label {
+    margin-left: 20px;
+    font-weight: 700;
+}
+button {
+
+    width: 250px;
+    height: 40px;
+    margin-left: 100px;
+    margin-top: 10px;
+    background-color: #2B7A9D;
+    color: white;
+    font-size: 1.125rem;
+    cursor: pointer;
+}
+#candidatename,
+#age,#gender,#papertitle,#qualification,#institutename,#emailID{
+    width: 200px;
+    height: 20px;
+    padding: 10px;
+    margin: 0 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border: solid 1px #dddfe2;
+    color: gray;
+}
+
+
+
+    
+</style>
+<body>
+    <section class="card">
+        <h1>CANDIDATE REGISTER</h1>
+             <form action="#">
+            <label for="candidatename">Candidate name:</label><br>
+            <input type="text" id="candidatename" placeholder="ENTER CANDIDATE NAME"/>
+            <br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" placeholder="ENTER AGE"/>
+            <br>
+            <label for="male">Male:</label>
+            <input type="radio" id="male"/>
+            <label for="female">Female:</label>
+            <input type="radio" id="female"/><br>
+            <br>
+            <label for="papertitle">Paper Title:</label><br>
+            <input type="text" id="papertitle" placeholder="ENTER PAPER TITLE"/>
+            <br>
+            <label for="qualification">Qualification:</label><br>
+            <input type="text" id="qualification" placeholder="ENTER YOUR QUALIFICATION"/>
+            <br>
+            <label for="emailID">Email ID:</label><br>
+            <input type="text" id="emailID" placeholder="ENTER EMAIL ID "/>
+            <br>
+            <br>
+            <button>SUBMIT HERE</button>
+        
+
+    </form>
+</section>
+</body>
+</html>
